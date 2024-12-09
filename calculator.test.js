@@ -23,3 +23,8 @@ test('custom delimiter is supported', () => {
     expect(add('//;\n1;2')).toBe(3);
     expect(add('//|\n1|2|3')).toBe(6);
 });
+
+test('throws an error when negative numbers are used', () => {
+    expect(() => add('1,-2,3')).toThrow('Negative numbers not allowed: -2');
+    expect(() => add('1,-2,-3')).toThrow('Negative numbers not allowed: -2,-3');
+});
