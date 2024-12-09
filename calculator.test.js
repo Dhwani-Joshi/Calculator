@@ -17,5 +17,9 @@ test('multiple numbers are summed correctly', () => {
 test('newlines are treated as delimiters', () => {
     expect(add('1\n2,3')).toBe(6);
     expect(add('4\n5\n6')).toBe(15);
-  });
-  
+});
+
+test('custom delimiter is supported', () => {
+    expect(add('//;\n1;2')).toBe(3);
+    expect(add('//|\n1|2|3')).toBe(6);
+});
